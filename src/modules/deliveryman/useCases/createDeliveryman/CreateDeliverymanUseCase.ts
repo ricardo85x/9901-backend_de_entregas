@@ -1,7 +1,6 @@
 import { hash } from "bcrypt";
 import { prisma } from "../../../../database/prismaClient";
 
-
 interface ICreateDeliveryman { 
     username: string;
     password: string;
