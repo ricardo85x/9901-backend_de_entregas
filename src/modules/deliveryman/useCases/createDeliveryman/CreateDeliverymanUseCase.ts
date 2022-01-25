@@ -9,9 +9,12 @@ interface ICreateDeliveryman {
 export class CreateDeliverymanUseCase {
     async execute ({ username, password }: ICreateDeliveryman ) {
 
-        const deliverymanExists = await prisma.deliveryman.findUnique({
+        const deliverymanExists = await prisma.deliveryman.findFirst({
             where: {
-                username 
+                username: {
+                    mode: "insensitive",
+                    equals: username
+                }
             }
         })
 
